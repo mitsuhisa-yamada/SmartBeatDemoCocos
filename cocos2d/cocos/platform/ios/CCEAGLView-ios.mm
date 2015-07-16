@@ -68,6 +68,8 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 #import <QuartzCore/QuartzCore.h>
 
+#import <SmartBeatFramework/SmartBeat.h>
+
 #import "base/CCDirector.h"
 #import "deprecated/CCSet.h"
 #import "base/CCTouch.h"
@@ -315,10 +317,13 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     
 #endif // __IPHONE_4_0
     
+    SmartBeat *sb = [SmartBeat shared];
+    [sb beforePresentRenderbuffer:self];
      if(![context_ presentRenderbuffer:GL_RENDERBUFFER])
         {
 //         CCLOG(@"cocos2d: Failed to swap renderbuffer in %s\n", __FUNCTION__);
         }
+    [sb afterPresentRenderbuffer];
 
 #if COCOS2D_DEBUG
     CHECK_GL_ERROR();
