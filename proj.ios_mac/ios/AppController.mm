@@ -39,11 +39,6 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SmartBeat startWithApiKey:@"1058d420-59b9-408c-b2d9-b4f3a9351ca6"];
-    [NSTimer scheduledTimerWithTimeInterval:10.0f
-                                     target:self
-                                   selector:@selector(timerFireMethod:)
-                                   userInfo:nil
-                                    repeats:NO];
 
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
@@ -150,14 +145,6 @@ static AppDelegate s_sharedApplication;
 - (void)dealloc {
     [window release];
     [super dealloc];
-}
-
--(void)timerFireMethod:(NSTimer *)timer {
-    int * j;
-    for(int i = 0; i < 1000 ;i++){
-        j = (int*)i;
-        *j = i;
-    }
 }
 
 @end

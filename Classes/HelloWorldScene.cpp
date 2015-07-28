@@ -78,9 +78,22 @@ bool HelloWorld::init()
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
+#if 0
     Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+#else
+    scheduleOnce(schedule_selector(HelloWorld::sigsegv), 10.0f);
+#endif
+}
+
+void HelloWorld::sigsegv(float frame)
+{
+    int * j;
+    for(int i = 0; i < 1000 ;i++){
+        j = (int*)i;
+        *j = i;
+    }
 }
