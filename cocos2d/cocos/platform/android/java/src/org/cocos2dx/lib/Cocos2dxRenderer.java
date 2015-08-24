@@ -28,6 +28,8 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLSurfaceView;
 
+import com.smrtbeat.SmartBeat;
+
 import org.cocos2dx.lib.Cocos2dxHelper;
 public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
     // ===========================================================
@@ -74,6 +76,7 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
         Cocos2dxRenderer.nativeInit(this.mScreenWidth, this.mScreenHeight);
         this.mLastTickInNanoSeconds = System.nanoTime();
         mNativeInitCompleted = true;
+        SmartBeat.onSurfaceCreated(2, false);
     }
 
     @Override
@@ -88,7 +91,9 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
          * since onDrawFrame() was called by system 60 times per second by default.
          */
         if (sAnimationInterval <= 1.0 / 60 * Cocos2dxRenderer.NANOSECONDSPERSECOND) {
+            SmartBeat.beginOnDrawFrame();
             Cocos2dxRenderer.nativeRender();
+            SmartBeat.endOnDrawFrame();
         } else {
             final long now = System.nanoTime();
             final long interval = now - this.mLastTickInNanoSeconds;
@@ -103,7 +108,9 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
              * Render time MUST be counted in, or the FPS will slower than appointed.
             */
             this.mLastTickInNanoSeconds = System.nanoTime();
+            SmartBeat.beginOnDrawFrame();
             Cocos2dxRenderer.nativeRender();
+            SmartBeat.endOnDrawFrame();
         }
     }
 
