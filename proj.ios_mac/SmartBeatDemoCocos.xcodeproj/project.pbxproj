@@ -63,6 +63,8 @@
 		6D3683501B57A9D6001A4347 /* SmartBeatFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D36834F1B57A9D6001A4347 /* SmartBeatFramework.framework */; };
 		6D3683521B57A9FC001A4347 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D3683511B57A9FC001A4347 /* SystemConfiguration.framework */; };
 		6D3683541B57AA0A001A4347 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D3683531B57AA0A001A4347 /* CoreTelephony.framework */; };
+		6D7721831C1ECFAC00D8FB20 /* SmartBeatIdfa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7721821C1ECFAC00D8FB20 /* SmartBeatIdfa.framework */; };
+		6D7721851C1ECFB500D8FB20 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7721841C1ECFB500D8FB20 /* AdSupport.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -160,6 +162,8 @@
 		6D3683511B57A9FC001A4347 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		6D3683531B57AA0A001A4347 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		6D3683551B57AA16001A4347 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		6D7721821C1ECFAC00D8FB20 /* SmartBeatIdfa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SmartBeatIdfa.framework; path = ../cocos2d/external/SmartBeatIdfa.framework; sourceTree = "<group>"; };
+		6D7721841C1ECFB500D8FB20 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -175,6 +179,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D7721851C1ECFB500D8FB20 /* AdSupport.framework in Frameworks */,
+				6D7721831C1ECFAC00D8FB20 /* SmartBeatIdfa.framework in Frameworks */,
 				6D3683541B57AA0A001A4347 /* CoreTelephony.framework in Frameworks */,
 				6D3683521B57A9FC001A4347 /* SystemConfiguration.framework in Frameworks */,
 				6D3683501B57A9D6001A4347 /* SmartBeatFramework.framework in Frameworks */,
@@ -265,6 +271,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D7721841C1ECFB500D8FB20 /* AdSupport.framework */,
+				6D7721821C1ECFAC00D8FB20 /* SmartBeatIdfa.framework */,
 				6D3683551B57AA16001A4347 /* CoreGraphics.framework */,
 				6D3683531B57AA0A001A4347 /* CoreTelephony.framework */,
 				6D3683511B57A9FC001A4347 /* SystemConfiguration.framework */,
