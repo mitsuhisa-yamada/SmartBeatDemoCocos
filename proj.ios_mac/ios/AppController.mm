@@ -39,6 +39,7 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SmartBeat startWithApiKey:@"1058d420-59b9-408c-b2d9-b4f3a9351ca6"];
+    [[SmartBeat shared] whiteListModelForOpenGLES:@"x86_64"];
 
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();

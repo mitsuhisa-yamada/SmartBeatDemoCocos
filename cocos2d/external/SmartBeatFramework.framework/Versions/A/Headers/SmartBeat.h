@@ -167,5 +167,18 @@
  */
 - (void) removeSensitiveViewTag:(NSInteger) tag;
 
+/*!
+ @method whiteListModelForOpenGLES
+ @abstract OpenGLES capture will only be enabled for whitelisted model names. Use this interface to register additional model names to the default whitelist. Model names can be acquired by using the sysctlbyname() function with "hw.machine".
+ @param model The model name to enable for OpenGL screen capture.
+ */
+- (void) whiteListModelForOpenGLES:(NSString *)model;
+
+/*!
+ @method isWhiteListed
+ @abstract Check if this device is listed in white list for OpenGL screen capture.
+ @result YES if it is enabled, NO otherwise.
+ */
+- (BOOL) isWhiteListed;
 
 @end
