@@ -32,7 +32,7 @@
 + (SmartBeat *) startWithApiKey:(NSString *) apiKey;
 
 /*!
- @method startWithApiKey:
+ @method startWithApiKey:withEnabled:
  @abstract Create and initilize a new SmartBeat instance with initial control.  This method must be called before calling other SmartBeat methods.
  @param apiKey The API key for your application.  You can find your API key on the settings screen of the SmartBeat web console.
  @param enabled NO if saving/sending Crash/Exception/Captured image shall be disabled by default.
@@ -109,10 +109,16 @@
 - (void) setUserId:(NSString *) userId;
 
 /*!
- @method logExceptionForUnity
+ @method logExceptionForUnity:withMessage:withImagePath:
  @abstract This method is not public.  It may be called from your unity guru code.
  */
 - (void) logExceptionForUnity: (NSString *) stackTrace withMessage:(NSString *) message withImagePath:(NSString *) imagePath;
+
+/*!
+ @method logExceptionForCocos2dJS:withName:withMessage:withAuxData:
+ @abstract This method is not public.  It may be called from your Cocos2d-JS guru code.
+ */
+- (void) logExceptionForCocos2dJS: (NSString *) stackTrace withName:(NSString *) name withMessage:(NSString *) message withAuxData:(NSDictionary *) auxData;
 
 /*!
  @method beforePresentRenderbuffer
@@ -182,3 +188,38 @@
 - (BOOL) isWhiteListed;
 
 @end
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/*!
+ @method SBLog
+ @abstract Puts a log message in the SmartBeat SDK.
+ @discussion
+ If {@link enableNSLog} is called, logs by this function are ignored and logs by NSLog() are used instead. However, logs by this function are always used on iOS 10 and above.
+ 
+ If you want to use this function instead of NSLog(), it is usefull to define the following macro in your application's Prefix.pch.
+ <pre>#define NSLog(...) (NSLog(__VA_ARGS__), SBLog(__VA_ARGS__))</pre>
+ Swift can not treatment C style variable length arguments, so please use {@link SBLogv}.
+ @param format A log format like printf
+ @param ... Log arguments
+ */
+void SBLog(NSString *format, ...);
+
+/*!
+ @method SBLogv
+ @abstract Puts a log message in the SmartBeat SDK. (takes va_list)
+ @discussion
+ If {@link enableNSLog} is called, logs by this function are ignored and logs by NSLog() are used instead. However, logs by this function are always used on iOS 10 and above.
+ 
+ In Swift, please use with getVaList() as below.
+ <pre>SBLogv("String: %\@, Integer: %d", getVaList(["text", 1]))</pre>
+ @param format A log format like printf
+ @param args Log arguments
+ */
+void SBLogv(NSString *format, va_list args);
+
+#ifdef __cplusplus
+}
+#endif
