@@ -187,6 +187,14 @@
  */
 - (BOOL) isWhiteListed;
 
+/*!
+ @method notifyRunning
+ @abstract Notifies the SmartBeat server that an application is running in the background.
+ @discussion
+ If your application supports background modes, call this method when the background task is invoked.
+ */
+- (void) notifyRunning;
+
 @end
 
 #ifdef __cplusplus
